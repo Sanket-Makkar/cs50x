@@ -16,13 +16,6 @@ for (int y = 0; y < x; y = y + 1){
     }
     printf("\n");
 }
-
-for (int y = 0; y < x; y = y + 1){
-    for (int j = 0; j <= y; j = j + 1){
-        printf("#");
-    }
-    printf("\n");
-}
     
     
 }
