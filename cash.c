@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <cs50.h>
+#include <math.h>
 int c = 0;
 float x;
 
@@ -9,7 +10,9 @@ int main(void){
     
 printf("how much change in dollars: ");
 scanf("%f", &x);
+if (x >= 0){
 cash();
+}
 }
 
 void cash(){
