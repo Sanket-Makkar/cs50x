@@ -16,6 +16,9 @@ for (int y = 0; y < x; y = y + 1){
     }
     printf("\n");
 }
+else{
+    printf("nope");
+}
     
     
 }
