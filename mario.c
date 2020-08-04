@@ -5,7 +5,7 @@ int main(void)
 printf("height: ");
 int x;
 scanf("%d", &x);
-if (x < 9){
+if (x <= 8){
     if (x > 0){
 for (int y = 0; y < x; y = y + 1){
     for (int k = 0; k < x - y - 1; k = k + 1){
