@@ -1,31 +1,31 @@
-#include <cs50.h>
 #include <stdio.h>
+#include <cs50.h>
+#include <math.h>
 
-int main(void){
-    printf("Change: ");
-    float x; 
-    int c = 0;
-    scanf("%f", &x);
+int main (void){
+double x;
+do{
+   x = get_double("Change: ");
+} while (x <= 0);
     
-    while (x != 0){
-        if (x >= .25){
-            x = x - .25;
-            c++;
-        }
-        else if (x >= .1){
-            x = x - .1;
-            c++;
-        }
-        else if (x >= .05){
-            x = x - .05;
-            c++;
-        }
-        else if (x >= .01){
-            x = x - .01;
-            c++;
-        }
-    }
-    if (x == 0){
-        printf("%d", c);
-    }
+int y = round (x * 100);
+    
+int c = 0;
+while (y >= 25){
+    y = y - 25;
+    c++;
+}
+while(y >= 10){
+    y = y - 10;
+    c++;
+}
+while(y >= 5){
+    y = y - 5;
+    c++;
+}
+while(y >= 1){
+    y = y - 1;
+    c++;
+}
+    printf("%d\n", c);
 }
