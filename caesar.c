@@ -13,7 +13,12 @@ string line = get_string("text: ");
     n = atoi (argv[1]);
     for(int a = 0; a < strlen(line); a++){
         if(isalpha(line[a])){
-            line[a] = line[a] + n;
+            if(islower(line[a])){
+                line[a] = (((line[a] + n - 97 )%26)+ 97);
+            }
+            if(isupper(line[a])){
+                line[a] = (((line[a] + n - 65) %26 ) + 65);
+            }
         }
     }
     printf("%s", line);
