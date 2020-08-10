@@ -38,14 +38,16 @@ int main(void){
     int b = L - o;
 
    // letters per 100 words
-   int g = (b/S)*100;
+   int g = ((float)b/(float)S)*100;
 
    // sentences per 100 words
    int h = ((float)U/(float)S)*100;
 
-   float i = round((0.0588 * g - 0.296 * h - 15.8) * -1);
+//final calculation
+   int i = .0588 * g - .296 * h - 15.8;
 
-    printf("Grade %f", i);
+
+    printf("Grade %d", i);
   // L is for avg letters per 100 words
   // S is for avg sentences per 100 letters
 }
