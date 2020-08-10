@@ -45,7 +45,7 @@ else if (i > 16){
     printf("grade 16+\n");
 }
 else if (i < 1){
-    printf("before grade 1\n");
+    printf("before grade 1...\n");
 }
 
 
