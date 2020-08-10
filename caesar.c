@@ -8,12 +8,13 @@
 int main(int argc, string argv[]){
 
 string line = get_string("text: ");
+
     int n;
     n = atoi (argv[1]);
     for(int a = 0; a < strlen(line); a++){
-        line[a] = line[a] + n;
+        if(isalpha(line[a])){
+            line[a] = line[a] + n;
+        }
     }
-    
     printf("%s", line);
-
 }
