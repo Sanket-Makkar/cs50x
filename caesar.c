@@ -25,6 +25,6 @@ string line = get_string("text: ");
     printf("cipher text: %s \n", line);
 }
     else{
-        printf("try again...")
+        printf("try again...");
     }
 }
