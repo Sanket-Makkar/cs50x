@@ -15,18 +15,13 @@ string line = get_string("text: ");
     for(int a = 0; a < strlen(line); a++){
         if(isalpha(line[a])){
             if(islower(line[a])){
-                printf("%c", (((line[a] + n - 97 )%26)+ 97));
+                line[a] = ((line[a] + n - 97 ) %26 )+ 97;
             }
             if(isupper(line[a])){
-                printf("%c", (((line[a] + n - 65) %26 ) + 65));
-            }
-            else{
-                printf("%c", line[a]);
+                line[a] = ((line[a] + n - 65) %26 ) + 65;
             }
         }
     }
 }
-    else{
-        printf("try again");
-    }
+printf("%s", line);
 }
