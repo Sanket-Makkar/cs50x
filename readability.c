@@ -39,13 +39,13 @@ int main(void){
    int i =  0.0588 * (100 * (float) L / (float) S) - 0.296 * (100 * (float) U / (float) S) - 15.8;
 
 if((i < 16) && (i > 0)){
-    printf("Grade %d", i);
+    printf("Grade %d\n", i);
 }
 else if (i > 16){
-    printf("grade 16+");
+    printf("grade 16+\n");
 }
 else if (i < 1){
-    printf("before grade 1");
+    printf("before grade 1\n");
 }
 
 
