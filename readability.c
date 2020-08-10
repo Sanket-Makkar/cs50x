@@ -5,7 +5,7 @@
 #include <math.h>
 
 // you need letters per 100 words
-// you need 
+// you need
 
 int main(void){
     //letter count
@@ -16,10 +16,10 @@ int main(void){
     int U = 0;
     // space count
     int o = 0;
-    
+
     //get lines
     string lines = get_string("Text: ");
-    
+
     for(int a = 0; a < strlen(lines); a++){
         //count letters
         L = L + 1;
@@ -33,19 +33,19 @@ int main(void){
             U++;
         }
     }
-    
+
    // letter total
     int b = L - o;
 
    // letters per 100 words
    int g = (b/S)*100;
-   
+
    // sentences per 100 words
    int h = ((float)U/(float)S)*100;
-   
+
    float i = round((0.0588 * g - 0.296 * h - 15.8) * -1);
-    
-    printf("%f", i);
+
+    printf("Grade %f", i);
   // L is for avg letters per 100 words
   // S is for avg sentences per 100 letters
 }
