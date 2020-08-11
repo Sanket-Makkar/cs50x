@@ -13,9 +13,16 @@ string line = get_string("text: ");
         printf("Usage is: ./caesar k\n");
         return 1;
     }
-    if (isdigit(*argv[1]) != 0){
+    
+
     int n;
     n = atoi (argv[1]);
+    
+    if (!isdigit(*argv[1])){
+        exit(0);
+    }
+
+    else if (isdigit(*argv[1])){
     if ((n >= 0) && (n <= 10000)){
     for(int a = 0; a < strlen(line); a++){
         if(isalpha(line[a])){
@@ -27,7 +34,8 @@ string line = get_string("text: ");
             }
         }
     }
-printf("ciphertext: %s\n", line);
+
 }
+printf("ciphertext: %s\n", line);
 }
 }
