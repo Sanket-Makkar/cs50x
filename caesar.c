@@ -8,17 +8,17 @@
 int main(int argc, string argv[]){
 
     if (argc != 2){
-        printf("try again with a number after caesar...\n");
+        printf("Usage: ./caesar key\n");
         return 1;
     }
     for(int p = 0; p < strlen(argv[1]); p++){
     if (!isdigit(*argv[1])){
-        printf("please try and add another value after the caesar command\n");
+        printf("Usage: ./caesar key\n");
         return 1;
     }
     }
     if (isalpha(*argv[1])){
-        printf("try putting a number instead...\n");
+        printf("Usage: ./caesar key\n");
         return 1;
     }
 
