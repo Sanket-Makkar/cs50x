@@ -6,17 +6,18 @@
 #include <stdlib.h>
 // whats left to do: adjust for capital letters, and loop z to a
 int main(int argc, string argv[]){
-
+    if (argc != 2){
+        printf("try again with a number after caesar...");
+        return 1;
+    }
     if (!isdigit(*argv[1])){
+        printf("please try and add another value after the caesar command");
         exit(0);
     }
 
     int n;
     n = atoi (argv[1]);
-    if (argc != 2){
-        printf("try again with a number after caesar...");
-        return 1;
-    }
+
     string line = get_string("text: ");
 
     
