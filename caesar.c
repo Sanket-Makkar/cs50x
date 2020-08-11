@@ -24,7 +24,7 @@ string line = get_string("text: ");
         }
     }
 }
-printf("cipher text: %s\n", line);
+printf("ciphertext: %s\n", line);
 }
 else {
     printf("dang");
