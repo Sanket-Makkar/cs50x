@@ -6,13 +6,16 @@
 #include <stdlib.h>
 // whats left to do: adjust for capital letters, and loop z to a
 int main(int argc, string argv[]){
+    
+    for(int p = 0; p < strlen(argv[1]); p++ ){
+        if (!isdigit(*argv[1])){
+            printf("please try and add another value after the caesar command\n");
+            return 1;
+        }
+    }
 
     if (argc != 2){
         printf("try again with a number after caesar...\n");
-        return 1;
-    }
-    if (!isdigit(*argv[1])){
-        printf("please try and add another value after the caesar command\n");
         return 1;
     }
     if (isalpha(*argv[1])){
