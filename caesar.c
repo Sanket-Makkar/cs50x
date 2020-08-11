@@ -14,6 +14,10 @@ int main(int argc, string argv[]){
         printf("please try and add another value after the caesar command");
         exit(0);
     }
+    if (isalpha(*argv[1])){
+        printf("try putting a number instead...");
+        return 1;
+    }
 
     int n;
     n = atoi (argv[1]);
