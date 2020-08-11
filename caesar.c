@@ -4,18 +4,19 @@
 #include <string.h>
 #include <math.h>
 #include <stdlib.h>
+// whats left to do: adjust for capital letters, and loop z to a
 int main(int argc, string argv[]){
 
-    if (isalpha(*argv[1])){
-        printf("try putting a number instead...\n");
+    if (argc != 2){
+        printf("try again with a number after caesar...\n");
         return 1;
     }
     if (!isdigit(*argv[1])){
         printf("please try and add another value after the caesar command\n");
         return 1;
     }
-    if (argc != 2){
-        printf("please put in a key number after caesar command");
+    if (isalpha(*argv[1])){
+        printf("try putting a number instead...\n");
         return 1;
     }
 
