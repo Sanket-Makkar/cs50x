@@ -6,15 +6,16 @@
 #include <stdlib.h>
 int main(int argc, string argv[]){
 
-    if (argc != 2){
-        if (!isdigit(*argv[1])){
-            printf("please try and add another value after the caesar command\n");
-            return 1;
-        }
-        if (isalpha(*argv[1])){
-            printf("try putting a number instead...\n");
-            return 1;
+    if (isalpha(*argv[1])){
+        printf("try putting a number instead...\n");
+        return 1;
     }
+    if (!isdigit(*argv[1])){
+        printf("please try and add another value after the caesar command\n");
+        return 1;
+    }
+    if (argc != 2){
+        printf("please put in a key number after caesar command");
         return 1;
     }
 
