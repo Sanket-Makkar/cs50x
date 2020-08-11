@@ -13,7 +13,7 @@ string line = get_string("text: ");
         printf("Usage is: ./caesar k\n");
         return 1;
     }
-    if (isdigit(*argv[1])){
+    if (isdigit(*argv[1]) != 0){
     int n;
     n = atoi (argv[1]);
     if ((n >= 0) && (n <= 10000)){
