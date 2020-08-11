@@ -11,6 +11,7 @@ string line = get_string("text: ");
 
     int n;
     n = atoi (argv[1]);
+    if ((n >= 0) && (n <= 10000)){
     if (argc == 2){
     for(int a = 0; a < strlen(line); a++){
         if(isalpha(line[a])){
@@ -23,5 +24,9 @@ string line = get_string("text: ");
         }
     }
 }
-printf("%s", line);
+printf("cipher text: %s\n", line);
+}
+else {
+    printf("dang");
+}
 }
