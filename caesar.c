@@ -7,15 +7,15 @@
 // whats left to do: adjust for capital letters, and loop z to a
 int main(int argc, string argv[]){
     if (argc != 2){
-        printf("try again with a number after caesar...");
+        printf("try again with a number after caesar...\n");
         return 1;
     }
     if (!isdigit(*argv[1])){
-        printf("please try and add another value after the caesar command");
+        printf("please try and add another value after the caesar command\n");
         exit(0);
     }
     if (isalpha(*argv[1])){
-        printf("try putting a number instead...");
+        printf("try putting a number instead...\n");
         return 1;
     }
 
