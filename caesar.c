@@ -4,18 +4,17 @@
 #include <string.h>
 #include <math.h>
 #include <stdlib.h>
-// whats left to do: adjust for capital letters, and loop z to a
 int main(int argc, string argv[]){
+
     if (argc != 2){
-        printf("try again with a number after caesar...\n");
-        return 1;
+        if (!isdigit(*argv[1])){
+            printf("please try and add another value after the caesar command\n");
+            return 1;
+        }
+        if (isalpha(*argv[1])){
+            printf("try putting a number instead...\n");
+            return 1;
     }
-    if (!isdigit(*argv[1])){
-        printf("please try and add another value after the caesar command\n");
-        exit(0);
-    }
-    if (isalpha(*argv[1])){
-        printf("try putting a number instead...\n");
         return 1;
     }
 
@@ -25,8 +24,8 @@ int main(int argc, string argv[]){
     string line = get_string("text: ");
 
     
-
-
+    if (argc == 2){
+    if (!isalpha(*argv[1])){
     if (isdigit(*argv[1])){
     if ((n >= 0) && (n <= 10000)){
     for(int a = 0; a < strlen(line); a++){
@@ -41,6 +40,7 @@ int main(int argc, string argv[]){
     }
 printf("ciphertext: %s\n", line);
 }
-
+}
+}
 }
 }
