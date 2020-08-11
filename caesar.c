@@ -7,20 +7,22 @@
 // whats left to do: adjust for capital letters, and loop z to a
 int main(int argc, string argv[]){
 
-    if (argc != 2){
-        printf("Usage: ./caesar key\n");
-        return 1;
-    }
+
     for(int p = 0; p < strlen(argv[1]); p++){
-    if (!isdigit(*argv[1])){
-        printf("Usage: ./caesar key\n");
-        return 1;
-    }
-    }
+        if (!isdigit(*argv[1])){
+            printf("Usage: ./caesar key\n");
+            return 1;
+        }
     if (isalpha(*argv[1])){
         printf("Usage: ./caesar key\n");
         return 1;
     }
+    if (argc != 2){
+        printf("Usage: ./caesar key\n");
+        return 1;
+    }
+    }
+
 
     int n;
     n = atoi (argv[1]);
