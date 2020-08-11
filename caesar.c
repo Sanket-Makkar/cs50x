@@ -9,10 +9,13 @@ int main(int argc, string argv[]){
 
 string line = get_string("text: ");
 
+    if (argc != 2){
+        printf("Usage is: ./caesar k\n");
+        return 1;
+    }
     int n;
     n = atoi (argv[1]);
     if ((n >= 0) && (n <= 10000)){
-    if (argc == 2){
     for(int a = 0; a < strlen(line); a++){
         if(isalpha(line[a])){
             if(islower(line[a])){
@@ -23,10 +26,6 @@ string line = get_string("text: ");
             }
         }
     }
-}
 printf("ciphertext: %s\n", line);
-}
-else {
-    printf("dang");
 }
 }
