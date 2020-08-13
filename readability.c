@@ -30,18 +30,23 @@ int main(void)
         }
     }
 
-    float lpw = ((float)lettercount/(float)wordcount) * 100;
-    float spw = ((float)sentencecount/(float)wordcount) * 100;
+    float lpw = ((float)lettercount / (float)wordcount) * 100;
+    float spw = ((float)sentencecount / (float)wordcount) * 100;
     
     float index = round(0.0588 * lpw - 0.296 * spw - 15.8);
     int w = index;
     
-    if(w < 0){
+    if (w < 0)
+    {
         printf("Before Grade 1...\n");
     }
-    else if (w > 16){
+    else if (w > 16)
+    {
         printf("Grade 16+\n");
     }
-    else printf("Grade %d\n", w);
+    else
+    {
+        printf("Grade %d\n", w);
+    }
 
 }
