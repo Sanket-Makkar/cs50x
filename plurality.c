@@ -4,6 +4,7 @@
 
 // Max number of candidates
 #define MAX 9
+int voter_count;
 
 // Candidates have name and vote count
 typedef struct
@@ -45,7 +46,7 @@ int main(int argc, string argv[])
         candidates[i].votes = 0;
     }
 
-    int voter_count = get_int("Number of voters: ");
+    voter_count = get_int("Number of voters: ");
 
     // Loop over all voters
     for (int i = 0; i < voter_count; i++)
