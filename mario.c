@@ -23,9 +23,5 @@ int main(void)
                 printf("\n");
             }
         }
-        else if(x < 1)
-        {
-            printf("try again with a number greater than or equal to 1...\n");
-        }
     }
 }
