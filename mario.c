@@ -3,13 +3,12 @@
 #include <ctype.h>
 int main(void)
 {
-    printf("height: ");
     int x;
-    scanf("%d", &x);
-    if (x < 9)
+    do
     {
-        if (x > 0)
-        {
+        x = get_int("height: ");
+    }
+    while(x <= -1 || x > 7);
             for (int y = 0; y < x; y = y + 1)
             {
                 for (int k = 0; k < x - y - 1; k = k + 1)
@@ -23,5 +22,3 @@ int main(void)
                 printf("\n");
             }
         }
-    }
-}
