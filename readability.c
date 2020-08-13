@@ -4,49 +4,44 @@
 #include <string.h>
 #include <math.h>
 
-// you need letters per 100 words
-// you need
-
-int main(void){
-    //letters
-    int L = 0;
-    //word count
-    int S = 1;
-    //sentence count
-    int U = 0;
-
-    //get lines
-    string lines = get_string("Text: ");
-
-    for(int a = 0; a < strlen(lines); a++){
-        //count letters
-        if ((lines[a] >= 'a' && lines[a] <= 'z') || (lines[a] <= 'Z' && lines[a] >= 'A')){
-            L = L + 1;
+//find letters per 100 words
+//find sentences per 100 words
+int main(void)
+{
+    string text = get_string("text: ");
+    int sentencecount = 0;
+    int wordcount = 1;
+    int lettercount = 0;
+    
+    for (int a = 0; a < strlen(text); a++)
+    {
+        if ((text[a] >= 'a' && text[a] <= 'z') || (text[a] >= 'A' && text[a] <= 'Z'))
+        {
+            lettercount++;
         }
-        //count words 
-        if (lines[a] == ' '){
-            S++;
+        
+        if (text[a] == ' ')
+        {
+            wordcount++;
         }
-        //count sentences
-        if (lines[a] == '.' || lines[a] == '?' || lines[a] == '!'){
-            U++;
+        if (text[a] == '.' || text[a] == '?' || text[a] == '!')
+        {
+            sentencecount++;
         }
     }
 
-
-
-//final calculation
-   int i =  0.0588 * (100 * (float) L / (float) S) - 0.296 * (100 * (float) U / (float) S) - 15.8;
-
-if((i < 16) && (i > 0)){
-    printf("Grade %d\n", i);
-}
-else if (i > 16){
-    printf("grade 16+\n");
-}
-else if (i < 1){
-    printf("before grade 1...\n");
-}
-
+    float lpw = ((float)lettercount/(float)wordcount) * 100;
+    float spw = ((float)sentencecount/(float)wordcount) * 100;
+    
+    float index = round(0.0588 * lpw - 0.296 * spw - 15.8);
+    int w = index + 1;
+    
+    if(w < 0){
+        printf("Before Grade 1...\n");
+    }
+    else if (w > 16){
+        printf("Grade 16+\n");
+    }
+    else printf("Grade: %d\n", w);
 
 }
