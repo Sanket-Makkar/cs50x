@@ -42,6 +42,6 @@ int main(void)
     else if (w > 16){
         printf("Grade 16+\n");
     }
-    else printf("Grade: %d\n", w);
+    else printf("Grade %d\n", w);
 
 }
