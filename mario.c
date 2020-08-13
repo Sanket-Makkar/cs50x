@@ -6,9 +6,9 @@ int main(void)
     printf("height: ");
     int x;
     scanf("%d", &x);
-    if (x <= 8)
+    if (x < 9)
     {
-        if (x >= 1)
+        if (x > 0)
         {
             for (int y = 0; y < x; y = y + 1)
             {
