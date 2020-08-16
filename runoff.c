@@ -128,16 +128,16 @@ int main(int argc, string argv[])
 // Record preference if vote is valid
 bool vote(int voter, int rank, string name)
 {
-    return false;    
+  
     for (int i = 0; i < candidate_count; i++)
     {
         if (strcmp(name, candidates[i].name))
         {
             preferences[voter][rank] = i;
             return true;
-            break;
         }
     }
+    return false;      
 }
 
 // Tabulate votes for non-eliminated candidates
@@ -220,5 +220,4 @@ void eliminate(int min)
 // vote does not correctly set preferences for any voter
 // tabulate does not produce correct vote totals
 // print winner is wrong
-// tie function does not return false if election is not tied
 //
