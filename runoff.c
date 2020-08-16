@@ -143,7 +143,6 @@ bool vote(int voter, int rank, string name)
 // Tabulate votes for non-eliminated candidates
 void tabulate(void)
 {
-    
     for (int i = 0; i < candidate_count; i++)
     {
         for (int j = 0; j < candidate_count; j++)
@@ -195,11 +194,11 @@ bool is_tie(int min)
         {
             if (candidates[i].votes == min)
             {
-                return true;
+                return false;
             }
         }
     }
-    return false;
+    return true;
 }
 
 // Eliminate the candidate (or candidates) in last place
@@ -214,3 +213,12 @@ void eliminate(int min)
     }
     return;
 }
+
+// whats not working
+// vote function does not return true when given name of candidate
+// vote does not correctly set preference for first voter
+// vote does not correctly set preferences for any voter
+// tabulate does not produce correct vote totals
+// print winner is wrong
+// tie function does not return false if election is not tied
+//
