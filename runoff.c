@@ -128,6 +128,7 @@ int main(int argc, string argv[])
 // Record preference if vote is valid
 bool vote(int voter, int rank, string name)
 {
+    return false;    
     for (int i = 0; i < candidate_count; i++)
     {
         if (strcmp(name, candidates[i].name))
@@ -135,9 +136,7 @@ bool vote(int voter, int rank, string name)
             preferences[voter][rank] = i;
             return true;
         }
-        return false;
     }
-    return false;
 }
 
 // Tabulate votes for non-eliminated candidates
@@ -151,11 +150,10 @@ void tabulate(void)
             if(!candidates[i].eliminated)
             {
                 candidates[preferences[i][j]].votes++;
+                break;
             }
         }
     }    
-    
-
     return;
 }
 
@@ -196,11 +194,11 @@ bool is_tie(int min)
         {
             if (candidates[i].votes == min)
             {
-                return true;
+                return false;
             }
         }
     }
-    return false;
+    return true;
 }
 
 // Eliminate the candidate (or candidates) in last place
