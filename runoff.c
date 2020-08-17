@@ -79,6 +79,12 @@ int main(int argc, string argv[])
                 return 4;
                 return false;
             }
+            if(strcmp(name, candidates[i].name) != 0)
+            {
+                printf("Invalid vote\n");
+                return 4;
+                return false;
+            }
         }
 
         printf("\n");
