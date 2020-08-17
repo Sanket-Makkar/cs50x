@@ -77,7 +77,6 @@ int main(int argc, string argv[])
             {
                 printf("Invalid vote.\n");
                 return 4;
-                return false;
             }
             if(strcmp(name, candidates[j].name) == 0)
             {
@@ -137,20 +136,16 @@ int main(int argc, string argv[])
 // Record preference if vote is valid
 bool vote(int voter, int rank, string name)
 {
-
+    bool idk = false;
     for (int i = 0; i < candidate_count; i++)
     {
-        if (strcmp(name, candidates[i].name))
+        if (strcmp(name, candidates[i].name) == 0)
         {
             preferences[voter][rank] = i;
-            return true;
-        }
-        if (strcmp(name, candidates[i].name) != 0)
-        {
-            return false;
+            idk = true;
         }
     }
-    return false;        
+    return idk;        
 }
 
 // Tabulate votes for non-eliminated candidates
