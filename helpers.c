@@ -7,15 +7,19 @@ void grayscale(int height, int width, RGBTRIPLE image[height][width])
     {
         for (int w = 0; w < width; w++)
         {
-            float avgpxl;
-            RGBTRIPLE a = image[height][width];
-            avgpxl = round(((a.rgbtRed + a.rgbtBlue + a.rgbtGreen)/3.00));
-            image[h][w].rgbtRed = avgpxl;
-            image[h][w].rgbtBlue = avgpxl;
-            image[h][w].rgbtGreen = avgpxl;
+            RGBTRIPLE b = image[h][w];
+            float R = b.rgbtRed;
+            float G = b.rgbtGreen;
+            float B = b.rgbtBlue;
+            
+            float a = round((R + G + B)/3);
+            
+            image[h][w].rgbtRed = a;
+            image[h][w].rgbtGreen = a;
+            image[h][w].rgbtBlue = a;
+            
         }
     }
-    return;
 }
 
 // Convert image to sepia
