@@ -107,10 +107,15 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                     numb++;
                 }
             }
-            
-            image[h][w].rgbtRed = round((red)/numb);
-            image[h][w].rgbtGreen = round((blue)/numb); 
-            image[h][w].rgbtBlue = round((blue)/numb);
+        }
+    }
+    for (int heightbutnot = 0; heightbutnot < height; heightbutnot++)
+    {
+        for (int widthbutnot = 0; widthbutnot < width; widthbutnot++)
+        {
+            image[heightbutnot][widthbutnot].rgbtRed = round((red)/numb);
+            image[heightbutnot][widthbutnot].rgbtGreen = round((blue)/numb); 
+            image[heightbutnot][widthbutnot].rgbtBlue = round((blue)/numb);
         }
     }
 }
