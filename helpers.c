@@ -114,9 +114,9 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                 placeholder[h][w].rgbtGreen = round((blue)/numb); 
                 placeholder[h][w].rgbtBlue = round((blue)/numb);
 
-                image[h][w].rgbtRed = placeholder.rgbtRed;
-                image[h][w].rgbtGreen = placeholder.rgbtGreen; 
-                image[h][w].rgbtBlue = placeholder.rgbtBlue;
+                image[h][w].rgbtRed = placeholder[h][w].rgbtRed;
+                image[h][w].rgbtGreen = placeholder[h][w].rgbtGreen; 
+                image[h][w].rgbtBlue = placeholder[h][w].rgbtBlue;
         }
     }
 }
