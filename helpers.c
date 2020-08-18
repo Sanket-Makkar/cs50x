@@ -108,11 +108,12 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                     green += image[h + r1][w + r2].rgbtGreen;
                     blue += image[h + r1][w + r2].rgbtBlue;
                     numb++;
+                    
+                    image[w][w].rgbtRed = round((red)/numb);
+                image[h][w].rgbtGreen = round((blue)/numb); 
+                image[h][w].rgbtBlue = round((blue)/numb);
                 }
             }
-            image[w][w].rgbtRed = round((red)/numb);
-            image[h][w].rgbtGreen = round((blue)/numb); 
-            image[h][w].rgbtBlue = round((blue)/numb);
         }
     }
 }
