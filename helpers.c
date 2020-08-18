@@ -8,8 +8,10 @@ void grayscale(int height, int width, RGBTRIPLE image[height][width])
         for (int w = 0; w < width - 1; w++)
         {
             RGBTRIPLE holder = image[h][w];
-            int avgpxl = ((holder.rgbtRed + holder.rgbtBlue + holder.rgbtGreen)/3);
-            image[h][w].rgbtRed = image[h][w].rgbtGreen = image[h][w].rgbtBlue = avgpxl;
+            int avgpxl = (round(holder.rgbtRed + holder.rgbtBlue + holder.rgbtGreen)/3);
+            image[h][w].rgbtRed = avgpxl;
+            image[h][w].rgbtGreen = avgpxl;
+            image[h][w].rgbtBlue = avgpxl;
             
         }
     }
