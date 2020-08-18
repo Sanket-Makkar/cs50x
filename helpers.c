@@ -77,17 +77,20 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
 
 
 // Blur image
-int red = 0;
-int green = 0;
-int blue = 0;
-float numb = 0;
+
 void blur(int height, int width, RGBTRIPLE image[height][width])
-{
+{    
+    RGBTRIPLE placeholder[height][width];
     for (int h = 0; h < height; h++)
     {
+
         for (int w = 0; w < width; w++)
         {
-
+            int red = 0;
+            int green = 0;
+            int blue = 0;
+            float numb = 0;
+            
             for (int r1 = -1; r1 < 2; r1++)
             {
                 if (h + r1 > height - 1 || h + r1 < 0)
@@ -101,21 +104,15 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                         return;
                     }
                     
-                    red = image[h + r1][w + r2].rgbtRed;
-                    green = image[h + r1][w + r2].rgbtGreen;
-                    blue = image[h + r1][w + r2].rgbtBlue;
+                    red += image[h + r1][w + r2].rgbtRed;
+                    green += image[h + r1][w + r2].rgbtGreen;
+                    blue += image[h + r1][w + r2].rgbtBlue;
                     numb++;
                 }
             }
-        }
-    }
-    for (int heightbutnot = 0; heightbutnot < height; heightbutnot++)
-    {
-        for (int widthbutnot = 0; widthbutnot < width; widthbutnot++)
-        {
-            image[heightbutnot][widthbutnot].rgbtRed = round((red)/numb);
-            image[heightbutnot][widthbutnot].rgbtGreen = round((blue)/numb); 
-            image[heightbutnot][widthbutnot].rgbtBlue = round((blue)/numb);
+            image[w][w].rgbtRed = round((red)/numb);
+            image[h][w].rgbtGreen = round((blue)/numb); 
+            image[h][w].rgbtBlue = round((blue)/numb);
         }
     }
 }
