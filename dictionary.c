@@ -6,6 +6,7 @@
 #include <ctype.h>
 #include <string.h>
 #include "dictionary.h"
+#include <strings.h>
 
 // Represents a node in a hash table
 typedef struct node
@@ -41,7 +42,7 @@ bool load(const char *dictionary)
     FILE *file = fopen(dictionary, "r");
     if (file == NULL)
     {
-        false;
+        return false;
     }
     char word[LENGTH + 1];
     while (fscanf(file, "%s", word) != EOF)
@@ -76,9 +77,15 @@ bool check(const char *word)
 {
     int tabnum = hash(word);
     node *cursor = table[tabnum];
+    char word_carbon[LENGTH + 1];
     while(cursor != NULL)
+    for(int i = 0; i < strlen(word); i++)
     {
-        if (strcmp(cursor->word, word) == 0)
+        word_carbon[i] = tolower(word_carbon[i]);
+    }
+    word_carbon[strlen(word_carbon)] = '\0';
+    {
+        if (strcmp(cursor->word, word_carbon) == 0)
         {
             return true;
         }
