@@ -26,12 +26,12 @@ unsigned int hash(const char *word)
 {
     //taken from https://www.youtube.com/watch?v=wg8hZxMRwcw&t=178s at 2:54 and also Franklin Gonzalez in the link below (scroll down till you see him)
     //https://us.edstem.org/courses/176/discussion/88659
-    for (int i = 0; i< strlen(word); i++)
+    int hash = 0;
+    for (int i = 0; word[i] != '\0'; i++)
     {
         valuei = valuei * 37 + tolower(word[i]);
     }
-    int finhash = valuei % N;
-    return finhash;
+    return valuei;
 }
     int wc = 0;
 
@@ -53,7 +53,6 @@ bool load(const char *dictionary)
             return false;
         }
         strcpy(unode->word, word);
-        hash(word);
         int indexnumb = hash(unode->word);
         node *pointe = table[indexnumb];
         if (pointe == NULL)
