@@ -1,5 +1,4 @@
 // Implements a dictionary's functionality
-
 #include <stdbool.h>
 #include <stdlib.h>
 #include <stdio.h>
@@ -75,26 +74,42 @@ bool load(const char *dictionary)
 // Returns true if word is in dictionary else false
 bool check(const char *word)
 {
-    int tabnum = hash(word);
-    node *cursor = table[tabnum];
-    char word_carbon[LENGTH + 1];
-    while(cursor != NULL)
-    for(int i = 0; i < strlen(word); i++)
+    char word_carbon[strlen(word)];
+    for (int i = 0; i < strlen(word); i++)
     {
-        word_carbon[i] = tolower(word_carbon[i]);
+        word_carbon[i] = tolower(word[i]);
     }
-    word_carbon[strlen(word_carbon)] = '\0';
+    
+    int word_carbon_hashindex = hash(word_carbon);
+    
+    node *point = malloc(sizeof(node));
+    point = table[word_carbon_hashindex];
+    if (point != NULL)
     {
-        if (strcmp(cursor->word, word_carbon) == 0)
-        {
-            return true;
+        if (table[word_carbon_hashindex] != NULL)
+            {
+            while (point -> next != NULL)
+            {
+                if (strcasecmp(word_carbon, point -> word) == 0)
+                {
+                    return true;
+                }
+                else 
+                {
+                    point = point -> next;
+                }
+            }
+            return false;
         }
         else
         {
-            cursor = cursor -> next;
+            return false;
         }
     }
-    return false;
+    else
+    {
+        return false;
+    }
 }
 // Returns number of words in dictionary if loaded else 0 if not yet loaded
 unsigned int size(void)
@@ -107,7 +122,7 @@ unsigned int size(void)
 bool unload(void)
 {
     for (int i = 0; i < N; i++)
-    {
+    { 
         node* freedomSeeker = table[i];
         while (freedomSeeker->next != NULL)
         {
