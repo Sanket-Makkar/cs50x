@@ -50,7 +50,7 @@ bool load(const char *dictionary)
         if (unode == NULL)
         {
             unload();
-            return 1;
+            return false;
         }
         strcpy(unode->word, word);
         hash(word);
