@@ -74,41 +74,26 @@ bool load(const char *dictionary)
 bool check(const char *word)
 {
     char word_carbon[strlen(word)];
-    for (int i = 0; i < strlen(word); i++)
+    strcpy(word_carbon, word);
+    for (int i = 0; word_carbon[i] != '\0'; i++)
     {
         word_carbon[i] = tolower(word[i]);
     }
     
-    int word_carbon_hashindex = hash(word_carbon);
-    
-    node *point = malloc(sizeof(node));
-    point = table[word_carbon_hashindex];
-    if (point != NULL)
+    int whashindex = hash(word_carbon);
+    node *pointr = table[whashindex];
+    if (pointr != NULL)
     {
-        if (table[word_carbon_hashindex] != NULL)
-            {
-            while (point -> next != NULL)
-            {
-                if (strcasecmp(word_carbon, point -> word) == 0)
-                {
-                    return true;
-                }
-                else 
-                {
-                    point = point -> next;
-                }
-            }
-            return false;
+        if (strcasecmp(pointr -> word, word_carbon) == 0)
+        {
+            return true;
         }
         else
         {
-            return false;
+            pointr = pointr -> next;
         }
     }
-    else
-    {
-        return false;
-    }
+    return false;
 }
 // Returns number of words in dictionary if loaded else 0 if not yet loaded
 unsigned int size(void)
