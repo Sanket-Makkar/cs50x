@@ -49,7 +49,6 @@ bool load(const char *dictionary)
         node *unode = malloc(sizeof(node));
         if (unode == NULL)
         {
-            unload();
             return false;
         }
         strcpy(unode->word, word);
