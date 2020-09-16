@@ -68,7 +68,7 @@ bool load(const char *dictionary)
             wc++;
         }
     }
-    fclose(file
+    fclose(file);
     return true;
 }
 // Returns true if word is in dictionary else false
