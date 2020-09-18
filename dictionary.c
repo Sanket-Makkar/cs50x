@@ -1,11 +1,12 @@
 // Implements a dictionary's functionality
+
 #include <stdbool.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include <ctype.h>
 #include <string.h>
-#include "dictionary.h"
 #include <strings.h>
+#include "dictionary.h"
 
 // Represents a node in a hash table
 typedef struct node
@@ -15,53 +16,64 @@ typedef struct node
 }
 node;
 int valuei = 0;
+int wc = 0;
 // Number of buckets in hash table
-const unsigned int N = 26;
+const unsigned int N = 100000;
 
 // Hash table
 node *table[N];
 
+
+
+
+
+
 // Hashes word to a number
+//hash was taken from franklin gonzalez on the link: https://us.edstem.org/courses/176/discussion/88659
 unsigned int hash(const char *word)
 {
-    //taken from https://www.youtube.com/watch?v=wg8hZxMRwcw&t=178s at 2:54 and also Franklin Gonzalez in the link below (scroll down till you see him)
-    //https://us.edstem.org/courses/176/discussion/88659
-    int hash = 0;
-    for (int i = 0; word[i] != '\0'; i++)
+    for (int i = 0; i < strlen(word); i++)
     {
         valuei = valuei * 37 + tolower(word[i]);
     }
-    return valuei;
+    return valuei % N;
 }
-    int wc = 0;
+
+
+
+
+
+
 
 // Loads dictionary into memory, returning true if successful else false
 bool load(const char *dictionary)
 {
-    FILE *file = fopen(dictionary, "r");
-    if (file == NULL)
-    {
-        return false;
-    }
     char word[LENGTH + 1];
+    FILE *file = fopen(dictionary, "r");
     while (fscanf(file, "%s", word) != EOF)
     {
-        node *unode = malloc(sizeof(node));
-        if (unode == NULL)
+        if (file == NULL)
         {
             return false;
         }
-        strcpy(unode->word, word);
-        int indexnumb = hash(unode->word);
-        node *pointe = table[indexnumb];
-        if (pointe == NULL)
+        node *unode = malloc(sizeof(node));
+        memset(unode, 0, sizeof(node));
+        if (unode == NULL)
         {
+            unload();
+            return false;
+        }
+        strcpy(unode -> word, word);
+        int indexnumb = hash(unode -> word);
+        node *listpointer = table[indexnumb];
+        if (listpointer != NULL)
+        {
+            unode -> next = table[indexnumb];
             table[indexnumb] = unode;
             wc++;
         }
-        else if (pointe != NULL)
+        else
         {
-            unode->next = table[indexnumb];
             table[indexnumb] = unode;
             wc++;
         }
@@ -69,51 +81,73 @@ bool load(const char *dictionary)
     fclose(file);
     return true;
 }
+
+
+
+
+
+
+
 // Returns true if word is in dictionary else false
 bool check(const char *word)
 {
-    char word_carbon[strlen(word)];
-    strcpy(word_carbon, word);
-    for (int i = 0; word_carbon[i] != '\0'; i++)
+    char wordcarbon[LENGTH + 1];
+    for (int i = 0; i < strlen(word); i++)
     {
-        word_carbon[i] = tolower(word[i]);
+        wordcarbon[i] = tolower(word[i]);
     }
-    
-    int whashindex = hash(word_carbon);
-    node *pointr = table[whashindex];
-    if (pointr != NULL)
+    int wordlen = strlen(word);
+    wordcarbon[wordlen] = '\0';
+    int indexnumb = hash(wordcarbon);
+    if(table[indexnumb] == NULL)
     {
-        if (strcasecmp(pointr -> word, word_carbon) == 0)
+        return false;
+    }
+    node *pointer = table[indexnumb];
+    
+    while (pointer != NULL)
+    {
+        if (strcasecmp(pointer -> word, wordcarbon) == 0)
         {
             return true;
         }
-        else
-        {
-            pointr = pointr -> next;
-        }
+        pointer = pointer -> next;
     }
     return false;
 }
+
+
+
+
+
+
 // Returns number of words in dictionary if loaded else 0 if not yet loaded
 unsigned int size(void)
 {
     return wc;
 }
 
+
+
+
+
+
 // Unloads dictionary from memory, returning true if successful else false
-// modified with some help from https://us.edstem.org/courses/176/discussion/83876
+//Assisted by https://stackoverflow.com/questions/61806250/cs50-speller-all-words-are-misspelled
 bool unload(void)
 {
     for (int i = 0; i < N; i++)
-    { 
-        node* freedomSeeker = table[i];
-        while (freedomSeeker->next != NULL)
+    {
+        node *freedomseeker = table[i];
+        if(table[i] != NULL)
         {
-            node *temp = freedomSeeker;
-            freedomSeeker = freedomSeeker -> next;
-            free(temp);
+            while(freedomseeker != NULL)
+            {
+                node *copycat = freedomseeker;
+                freedomseeker = freedomseeker -> next;
+                free(copycat);
+            }
         }
-        free(freedomSeeker);
     }
     return true;
 }
