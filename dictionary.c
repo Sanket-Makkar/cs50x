@@ -15,7 +15,6 @@ typedef struct node
     struct node *next;
 }
 node;
-int valuei = 0;
 int wc = 0;
 // Number of buckets in hash table
 const unsigned int N = 100000;
@@ -32,9 +31,10 @@ node *table[N];
 //hash was taken from franklin gonzalez on the link: https://us.edstem.org/courses/176/discussion/88659
 unsigned int hash(const char *word)
 {
+    int valuei = 0;
     for (int i = 0; i < strlen(word); i++)
     {
-        valuei = valuei * 37 + tolower(word[i]);
+        valuei = valuei + tolower(word[i]);
     }
     return valuei % N;
 }
