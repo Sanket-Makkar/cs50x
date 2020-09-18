@@ -28,7 +28,6 @@ node *table[N];
 
 
 // Hashes word to a number
-//hash was taken from franklin gonzalez on the link: https://us.edstem.org/courses/176/discussion/88659
 unsigned int hash(const char *word)
 {
     int valuei = 0;
