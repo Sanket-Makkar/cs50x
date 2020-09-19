@@ -98,7 +98,7 @@ bool check(const char *word)
     int wordlen = strlen(word);
     wordcarbon[wordlen] = '\0';
     int indexnumb = hash(wordcarbon);
-    if(table[indexnumb] == NULL)
+    if (table[indexnumb] == NULL)
     {
         return false;
     }
@@ -138,9 +138,9 @@ bool unload(void)
     for (int i = 0; i < N; i++)
     {
         node *freedomseeker = table[i];
-        if(table[i] != NULL)
+        if (table[i] != NULL)
         {
-            while(freedomseeker != NULL)
+            while (freedomseeker != NULL)
             {
                 node *copycat = freedomseeker;
                 freedomseeker = freedomseeker -> next;
