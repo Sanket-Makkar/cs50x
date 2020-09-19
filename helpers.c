@@ -12,7 +12,7 @@ void grayscale(int height, int width, RGBTRIPLE image[height][width])
             float G = b.rgbtGreen;
             float B = b.rgbtBlue;
             
-            float a = round((R + G + B)/3);
+            float a = round((R + G + B) / 3);
             
             image[h][w].rgbtRed = a;
             image[h][w].rgbtGreen = a;
@@ -55,7 +55,7 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
 {
     for (int h = 0; h < height; h++)
     {
-        for (int w = 0; w < width/2; w++)
+        for (int w = 0; w < width / 2; w++)
         {
             //temp = img1, img1 = img2, img2 = temp
             filler[0] = image[h][w].rgbtRed;
