@@ -274,4 +274,4 @@ elif (argv[1] == "databases/large.csv"):
     elif ((maincount1 == 29) & (maincount2 == 50) & (maincount3 == 18) & (maincount4 == 23) & (maincount5 == 38) & (maincount6 == 24) & (maincount7 == 22) & (maincount8 == 9)):
         print("Zacharias")
     else:
-        print("No Result")
+        print("No Match")
