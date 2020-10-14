@@ -9,7 +9,7 @@ if (len(argv) != 3):
 csvdatabase = argv[1]
 csvsequence = argv[2]
 
-with open (csvdatabase, 'r') as data:
+with open(csvdatabase, 'r') as data:
     dataleak = csv.reader(data)
     lengthofsequence = 0
 
@@ -43,7 +43,7 @@ if (argv[1] == "databases/small.csv"):
         if (tempcount > maincount):
             maincount = tempcount
         tempcount = 0
-#//////////////////////////////////////////////////////////////////////
+# //////////////////////////////////////////////////////////////////////
         while (sequenceleak[a:b] == "AATG"):
             tempcount2 += 1
             a += 4
@@ -55,7 +55,7 @@ if (argv[1] == "databases/small.csv"):
         if (tempcount2 > maincount2):
             maincount2 = tempcount2
         tempcount2 = 0
-#///////////////////////////////////////////////////////////
+# ///////////////////////////////////////////////////////////
         while (sequenceleak[c:d] == "TATC"):
             tempcount3 += 1
             c += 4
@@ -67,7 +67,7 @@ if (argv[1] == "databases/small.csv"):
         if(tempcount3 > maincount3):
             maincount3 = tempcount3
         tempcount3 = 0
-#//////////////////////////////////////////////////////
+# //////////////////////////////////////////////////////
     if ((maincount == 2) & (maincount2 == 8) & (maincount3 == 3)):
         print("Alice")
     elif ((maincount == 4) & (maincount2 == 1) & (maincount3 == 5)):
@@ -76,10 +76,6 @@ if (argv[1] == "databases/small.csv"):
         print("Charlie")
     else:
         print("No Match")
-
-
-
-
 
 elif (argv[1] == "databases/large.csv"):
     q = 0
@@ -99,7 +95,7 @@ elif (argv[1] == "databases/large.csv"):
         if (tempcount1 > maincount1):
             maincount1 = tempcount1
         tempcount1 = 0
-#/////////////////////////////////////////////////////////////////////////////////////////////////////
+# /////////////////////////////////////////////////////////////////////////////////////////////////////
     a = 0
     tempcount2 = 0
     maincount2 = 0
@@ -117,7 +113,7 @@ elif (argv[1] == "databases/large.csv"):
         if (tempcount2 > maincount2):
             maincount2 = tempcount2
         tempcount2 = 0
-#/////////////////////////////////////////////////////////////////////////////////////
+# /////////////////////////////////////////////////////////////////////////////////////
     c = 0
     tempcount3 = 0
     maincount3 = 0
@@ -135,7 +131,7 @@ elif (argv[1] == "databases/large.csv"):
         if (tempcount3 > maincount3):
             maincount3 = tempcount3
         tempcount3 = 0
-#//////////////////////////////////////////////////////////////////////////////////////
+# //////////////////////////////////////////////////////////////////////////////////////
     e = 0
     tempcount4 = 0
     maincount4 = 0
@@ -153,7 +149,7 @@ elif (argv[1] == "databases/large.csv"):
         if (tempcount4 > maincount4):
             maincount4 = tempcount4
         tempcount4 = 0
-#///////////////////////////////////////////////////////////////////////////////////
+# ///////////////////////////////////////////////////////////////////////////////////
     g = 0
     tempcount5 = 0
     maincount5 = 0
@@ -171,7 +167,7 @@ elif (argv[1] == "databases/large.csv"):
         if (tempcount5 > maincount5):
             maincount5 = tempcount5
         tempcount5 = 0
-#//////////////////////////////////////////////////////////////////////////////////////////
+# //////////////////////////////////////////////////////////////////////////////////////////
     i = 0
     tempcount6 = 0
     maincount6 = 0
@@ -189,7 +185,7 @@ elif (argv[1] == "databases/large.csv"):
         if (tempcount6 > maincount6):
             maincount6 = tempcount6
         tempcount6 = 0
-#///////////////////////////////////////////////////////////////////////////////
+# ///////////////////////////////////////////////////////////////////////////////
     l = 0
     tempcount7 = 0
     maincount7 = 0
@@ -207,7 +203,7 @@ elif (argv[1] == "databases/large.csv"):
         if (tempcount7 > maincount7):
             maincount7 = tempcount7
         tempcount7 = 0
-#//////////////////////////////////////////////////////////////////////
+# //////////////////////////////////////////////////////////////////////
     n = 0
     tempcount8 = 0
     maincount8 = 0
@@ -225,7 +221,7 @@ elif (argv[1] == "databases/large.csv"):
         if (tempcount8 > maincount8):
             maincount8 = tempcount8
         tempcount8 = 0
-#/////////////////////////////////////////////////////////////////////////////////////
+# /////////////////////////////////////////////////////////////////////////////////////
 
     if ((maincount1 == 15) & (maincount2 == 49) & (maincount3 == 38) & (maincount4 == 5) & (maincount5 == 14) & (maincount6 == 44) & (maincount7 == 14) & (maincount8 == 12)):
         print("Albus")
